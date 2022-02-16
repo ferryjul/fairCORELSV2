@@ -25,7 +25,7 @@ The currently supported fairness notions are : statistical parity, predictive pa
     The type of prefix map to use. Supported maps are "none" for no map,
     "prefix" for a map that uses rule prefixes for keys, "captured" for
     a map with a prefix's captured vector as keys.
-    **NOTE that "prefix" map corresponds to the implementation proposed by Ferry et. al in their paper at the CPAIOR 2022 conference.
+    **NOTE that "prefix" map corresponds to the implementation proposed in our paper at the CPAIOR 2022 conference.
     Indeed, the original CORELS' prefix permutation map failed to guarantee optimality when learning fair rule lists.**
 
 * `policy` : str, optional (default="bfs")

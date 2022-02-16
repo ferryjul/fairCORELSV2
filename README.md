@@ -2,14 +2,14 @@
 
 Email contact: <jferry@laas.fr>
 
-Welcome to FairCorelsV2, a Python library for learning certifiably optimal fair and interpretable models!
+Welcome to FairCORELSV2, a Python library for learning certifiably optimal fair and interpretable models!
 The use of Python 3 is strongly recommended !
 
 
 ## Overview
 
 FairCORELSV2 is an improved version of the [FairCORELS](https://github.com/ferryjul/fairCORELS) algorithm, proposed to efficiently learn optimal fair rule lists. 
-It provides additional tools allowing a more efficient exploration of the search space while still guaranteeing optimality of the resulting models. Details on the methods used within FairCORELSV2 are provided within our full paper accepted at the CPAIOR 2022 conference ([preprint](https://homepages.laas.fr/jferry/drupal/sites/homepages.laas.fr.jferry/files/u202/CPAIOR2022_paper.pdf)).
+It provides additional tools allowing a more efficient exploration of the search space while still guaranteeing optimality of the resulting models. Details on the methods used within FairCORELSV2 are provided within our full paper accepted at the CPAIOR 2022 conference ([preprint](https://homepages.laas.fr/jferry/drupal/sites/homepages.laas.fr.jferry/files/u202/CPAIOR2022_paper.pdf)). In a nutshell, we propose a novel pruning approach, leveraging Mixed Integer Linear Programming to prune FairCORELS' search space (represented as a prefix tree, as in the CORELS algorithm). We additionally modified CORELS' prefix permutation map in order to maintain the optimality guarantee of the built fair rule lists. 
 
 The original FairCORELS algorithm was introduced in the paper [Learning fair rule lists](https://arxiv.org/abs/1909.03977) and presented at the [CIKM 2021](https://www.cikm2021.org/) conference, in a [demo paper](https://dl.acm.org/doi/10.1145/3459637.3481965). FairCORELS is based on the [CORELS algorithm](https://corels.eecs.harvard.edu/) and its [original](https://github.com/corels/corels) and [Python](https://github.com/corels/pycorels) implementations.
 
@@ -24,9 +24,9 @@ IMPORTANT: predictive parity and conditional use accuracy equality can not be us
 
 IMPORTANT: This package includes several pruning methods, that use either the CPLEX or Mistral solvers
 
-* [Mistral](https://github.com/ehebrard/Mistral-2.0) is an open-source solver, awarded with two Bronze medals at the [Minizinc challenge 2020](https://www.minizinc.org/challenge2020/results2020.html). It is embedded and compiled with FairCORELS.
+* [Mistral](https://github.com/ehebrard/Mistral-2.0) is an open-source solver, awarded with two Bronze medals at the [Minizinc challenge 2020](https://www.minizinc.org/challenge2020/results2020.html). It is embedded and compiled with FairCORELSV2.
 
-* [IBM ILOG CPLEX Optimization Studio](https://www.ibm.com/products/ilog-cplex-optimization-studio) is a popular commercial solver. In order to use it with FairCORELS, you first have to install the C++ version of IBM ILOG CPLEX Optimization Studio. Then, clone this repository, and modify the `setup.py` file as follows (and launch the source installation with `python setup.py install`): 
+* [IBM ILOG CPLEX Optimization Studio](https://www.ibm.com/products/ilog-cplex-optimization-studio) is a popular commercial solver. In order to use it with FairCORELSV2, you first have to install the C++ version of IBM ILOG CPLEX Optimization Studio. Then, clone this repository, and modify the `setup.py` file as follows (and launch the source installation with `python setup.py install`): 
 
 ```
         compile_with_cplex = True 
@@ -65,7 +65,7 @@ pip install faircorelsv2
 
 ```
 git clone https://github.com/ferryjul/fairCORELSV2.git
-cd fairCORELS
+cd fairCORELSV2
 ```
 
 * If you want to enable the CPLEX support, download and install the [IBM ILOG CPLEX Optimization Studio](https://www.ibm.com/products/ilog-cplex-optimization-studio).
@@ -105,7 +105,7 @@ print(a)
 ```
 
 ### Complete examples
-Detailed example files are provided in the `example` directory, along with three state-of-the-art preprocessed fair classification datasets:
+Detailed example files are provided in the `example` directory, along with three state-of-the-art preprocessed fair classification datasets (contained in the `data` folder):
 
 * `Demo-fairCORELSV2.ipynb` is a step-by-step notebook, showing how the `FairCorelsClassifierV2` classifier can be used to learn fair rule lists and to build sets of tradeoffs between accuracy and fairness
 
@@ -135,7 +135,7 @@ Note that the three provided datasets can be used with these scripts (by changin
     The type of prefix map to use. Supported maps are "none" for no map,
     "prefix" for a map that uses rule prefixes for keys, "captured" for
     a map with a prefix's captured vector as keys.
-    **NOTE that "prefix" map corresponds to the implementation proposed by Ferry et. al in their paper at the CPAIOR 2022 conference.
+    **NOTE that "prefix" map corresponds to the implementation proposed in our paper at the CPAIOR 2022 conference.
     Indeed, the original CORELS' prefix permutation map failed to guarantee optimality when learning fair rule lists.**
 
 * `policy` : str, optional (default="bfs")
