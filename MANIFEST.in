@@ -1,0 +1,10 @@
+include LICENSE
+include faircorelsv2/README.md
+include faircorelsv2/_corels.cpp
+include faircorelsv2/*.py
+include faircorelsv2/src/utils*
+include faircorelsv2/src/corels/src/*.hh
+include faircorelsv2/src/corels/src/*.cpp
+include faircorelsv2/src/corels/src/*.hpp
+include faircorelsv2/_corels.pyx
+

@@ -1,0 +1,6 @@
+Objective, Running_Time(ms), #Explored, Cache_Size
+0.46626,0,0,0
+0.452829,0.081000,8,8
+0.452203,1.101000,153,120
+0.447919,9.184000,1032,757
+Exit_Status,1327.878000,TRIE_SIZE_OUT,endOfData

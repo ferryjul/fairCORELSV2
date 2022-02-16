@@ -1,0 +1,9 @@
+setuptools
+numpy
+pytest
+tqdm
+joblib
+pandas
+cython
+pickle
+joblib

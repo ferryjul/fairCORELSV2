@@ -1,0 +1,33 @@
+Fold#,Training accuracy,Training Unfairness(1),Training objective function,Test accuracy,Test unfairness,#Nodes explored for best solution,Cache size for best solution,Solving status,Rule list
+0,0.5571138211382114,0.019436586972526815,0.4488861788617886,0.5528455284552846,0.014588145682753378,131553,34670,OPT,"RULELIST:
+ if [priors_count_middle]: (income:>50K) = True
+else if [sex_Male]: (income:>50K) = False
+else if [priors_count_high]: (income:>50K) = True
+else if [c_charge_degree_Misdemeanor]: (income:>50K) = False
+else if [priors_count_very_low]: (income:>50K) = False
+else if [age_middle]: (income:>50K) = True
+else (income:>50K) = False"
+1,0.5550813008130081,0.018792466486047904,0.4479186991869919,0.5658536585365853,0.011919600045323775,1032,705,OPT,"RULELIST:
+ if [priors_count_middle]: (income:>50K) = True
+else if [sex_Male]: (income:>50K) = False
+else if [priors_count_high]: (income:>50K) = True
+else (income:>50K) = False"
+2,0.5672764227642276,0.019404600407231576,0.4387235772357724,0.5471544715447154,0.03022709998580103,115517,31006,OPT,"RULELIST:
+ if [age_very_high]: (income:>50K) = False
+else if [priors_count_middle]: (income:>50K) = True
+else if [age_low]: (income:>50K) = False
+else if [sex_Male]: (income:>50K) = False
+else if [priors_count_very_low]: (income:>50K) = False
+else if [age_middle]: (income:>50K) = True
+else (income:>50K) = False"
+3,0.5546747967479675,0.008896761789548735,0.4483252032520325,0.567479674796748,0.05110779887135583,1021,696,OPT,"RULELIST:
+ if [priors_count_middle]: (income:>50K) = True
+else if [sex_Male]: (income:>50K) = False
+else if [priors_count_high]: (income:>50K) = True
+else (income:>50K) = False"
+4,0.558130081300813,0.016873331637832834,0.444869918699187,0.5536585365853659,0.019647696476964793,1054,704,OPT,"RULELIST:
+ if [priors_count_middle]: (income:>50K) = True
+else if [sex_Male]: (income:>50K) = False
+else if [priors_count_high]: (income:>50K) = True
+else (income:>50K) = False"
+Average,0.5584552845528455,0.016680749458637574,0.4457447154471545,0.5573983739837398,0.025498068212439762,,,

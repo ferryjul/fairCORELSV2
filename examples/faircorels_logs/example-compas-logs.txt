@@ -1,0 +1,7 @@
+Objective, Running_Time(ms), #Explored, Cache_Size
+0.467233,0,0,0
+0.462922,23.614000,151,122
+0.46201,622.793000,8842,4619
+0.453573,6075.183000,139797,34770
+Exit_Status,12339.038000,OPT,endOfData
+Solver_Average_RT,31 microsecs,,
