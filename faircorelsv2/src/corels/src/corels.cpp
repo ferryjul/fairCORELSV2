@@ -7,7 +7,6 @@
 //#include "milp_pruning_cplex.hh"
 #include "pruning_interfaces.hh"
 //#include <time.h> // for cp filtering running time measures
-#include "../../../_corels.h" // for opt pruning
 #include <ctime> // for solver RT measurements
 #include <numeric> // for solver RT measurements
 

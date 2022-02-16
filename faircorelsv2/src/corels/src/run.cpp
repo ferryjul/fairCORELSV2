@@ -4,7 +4,6 @@
 
 #include "queue.hh"
 #include "run.hh"
-#include "../../../_corels.h" // for opt pruning
 
 #define BUFSZ 512
 
