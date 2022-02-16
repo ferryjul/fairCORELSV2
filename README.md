@@ -2,7 +2,7 @@
 
 Email contact: <jferry@laas.fr>
 
-PyPI project page: https://pypi.org/project/faircorelsv2/1.0/
+PyPI project page: https://pypi.org/project/faircorelsv2/
 
 Welcome to FairCORELSV2, a Python library for learning certifiably optimal fair and interpretable models!
 The use of Python 3 is strongly recommended !
