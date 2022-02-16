@@ -5,8 +5,10 @@ It leverages CP/MILP solvers (either Mistral or CPLEX) to efficiently prune the 
 GMP (GNU Multiple Precision library) is not required, but it is *highly recommended*, as it improves performance. 
 If it is not installed, fairCORELS will run slower.
 
-The `fairCORELSV2` module includes one classifier method : `FairCorelsClassifierV2`.
+The `FairCORELSV2` module includes one classifier method : `FairCorelsClassifierV2`.
 The `FairCorelsClassifierV2` class implements the fairCORELSV2 method. Details on the methods used within FairCORELSV2 are provided within our full paper accepted at the CPAIOR 2022 conference ([preprint](https://homepages.laas.fr/jferry/drupal/sites/homepages.laas.fr.jferry/files/u202/CPAIOR2022_paper.pdf)).
+In a nutshell, `FairCORELSV2` brings several improvements to the original [`FairCORELS`](https://github.com/ferryjul/fairCORELS) algorithm: a novel pruning approach leveraging Mixed Integer Linear Programming, and a new prefix permutation map designed to provide optimality guarantees when learning fair rule lists.
+
 The currently supported fairness notions are : statistical parity, predictive parity, predictive equality, equal opportunity, equalized odds, and conditional use accuracy equality.
 
 # Detail of the parameters for FairCorelsClassifierV2:
