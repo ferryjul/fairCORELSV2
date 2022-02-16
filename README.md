@@ -26,7 +26,7 @@ IMPORTANT: predictive parity and conditional use accuracy equality can not be us
 
 IMPORTANT: This package includes several pruning methods, that use either the CPLEX or Mistral solvers
 
-* [Mistral](https://github.com/ehebrard/Mistral-2.0) is an open-source solver, awarded with two Bronze medals at the [Minizinc challenge 2020](https://www.minizinc.org/challenge2020/results2020.html). It is embedded and compiled with FairCORELSV2.
+* [Mistral](https://github.com/ehebrard/Mistral-2.0) is an open-source solver, awarded with two Bronze medals at the [Minizinc challenge 2020](https://www.minizinc.org/challenge2020/results2020.html). It is embedded (and tuned specifically to efficiently handle our pruning problem) and compiled with FairCORELSV2.
 
 * [IBM ILOG CPLEX Optimization Studio](https://www.ibm.com/products/ilog-cplex-optimization-studio) is a popular commercial solver. In order to use it with FairCORELSV2, you first have to install the C++ version of IBM ILOG CPLEX Optimization Studio. Then, clone this repository, and modify the `setup.py` file as follows (and launch the source installation with `python setup.py install`): 
 
