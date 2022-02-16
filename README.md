@@ -110,10 +110,10 @@ Detailed example files are provided in the `example` directory, along with three
 * `Demo-fairCORELSV2.ipynb` is a step-by-step notebook, showing how the `FairCorelsClassifierV2` classifier can be used to learn fair rule lists and to build sets of tradeoffs between accuracy and fairness
 
 * `example-compas-fairCORELSV2.py` is a Python script using the `FairCorelsClassifierV2` classifier.
-Use: `example-compas-fairCORELSV2.py --filteringMode=x` with `x` the desired pruning mode (see the classifier's parameters below)
+Use: `python example-compas-fairCORELSV2.py --filteringMode=x` with `x` the desired pruning mode (see the classifier's parameters below)
 
 * `example-compas-fairCORELSV2-kfolds.py` works just like `example-compas-fairCORELSV2.py`, but performs 5-folds cross-validation and saves the detailed per-fold results in a new csv file within the `results` folder.
-Use: `example-compas-fairCORELSV2-kfolds.py --filteringMode=x` with `x` the desired pruning mode (see the classifier's parameters below)
+Use: `python example-compas-fairCORELSV2-kfolds.py --filteringMode=x` with `x` the desired pruning mode (see the classifier's parameters below)
 
 All files show how to load data, how to train our classifiers, how to evaluate them, and how to store results in a clear and easily exploitable manner.
 Log files (showing exploration progress) are saved under the `faircorels_logs` folder.
