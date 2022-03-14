@@ -27,7 +27,7 @@ def install(gmp):
     with open('faircorelsv2/README.md') as f:
         long_description = f.read()
 
-    version = '1.0'
+    version = '1.1'
 
     pyx_file = 'faircorelsv2/_corels.pyx'
 
@@ -66,10 +66,9 @@ def install(gmp):
 
     sources.append('faircorelsv2/src/utils.cpp')
     #CXXFLAGS, CXXFLAGS2, 
-    cpp_args = ['-Wall', '-O3', '-std=c++11', OTHER_ARGS1, OTHER_ARGS2, OTHER_ARGS3, CPLEX_ADDITIONAL_DIR, LINKERDIR_CPLEX, LINKERDIR_CONCERT, LDLIBS]
-
+    cpp_args = ['-Wall', '-O3', '-std=c++11', OTHER_ARGS1, OTHER_ARGS2, OTHER_ARGS3]
     if compile_with_cplex:
-        cpp_args.append('-D CPLEX_SUPPORT')
+        cpp_args.extend(['-D CPLEX_SUPPORT', CPLEX_ADDITIONAL_DIR, LINKERDIR_CPLEX, LINKERDIR_CONCERT, LDLIBS])
 
     libraries = []
 
@@ -83,25 +82,32 @@ def install(gmp):
         libraries.append('gmp')
         cpp_args.append('-DGMP')
 
-    libraries.append('concert')
-    libraries.append('ilocplex')
-    libraries.append('cplex')
+    if compile_with_cplex:
+        libraries.append('concert')
+        libraries.append('ilocplex')
+        libraries.append('cplex')
     libraries.append('dl')
 
     libraries_dirs = []
-    libraries_dirs.append('%s/lib/x86-64_linux/static_pic'%CPLEX_DIR)
-    libraries_dirs.append('%s/lib/x86-64_linux/static_pic'%CPLEX_DIR_CONCERT)
+    if compile_with_cplex:
+        libraries_dirs.append('%s/lib/x86-64_linux/static_pic'%CPLEX_DIR)
+        libraries_dirs.append('%s/lib/x86-64_linux/static_pic'%CPLEX_DIR_CONCERT)
 
     if os.name == 'nt':
         cpp_args.append('-D_hypot=hypot')
         if sys.version_info[0] < 3:
             raise Exception("Python 3.x is required on Windows")
 
+    include_dirs_list = ['faircorelsv2/src/', 'faircorelsv2/src/corels/src', numpy.get_include()]
+
+    if compile_with_cplex:
+        include_dirs_list.extend(['%s/include'%CPLEX_DIR, '%s/include' %CPLEX_DIR_CONCERT])
+
     extension = Extension("faircorelsv2._corels", 
                 sources = sources,
                 libraries = libraries,
                 library_dirs = libraries_dirs,
-                include_dirs = ['faircorelsv2/src/', 'faircorelsv2/src/corels/src', numpy.get_include(), '%s/include'%CPLEX_DIR, '%s/include' %CPLEX_DIR_CONCERT],
+                include_dirs = include_dirs_list,
                 language = "c++",
                 extra_compile_args = cpp_args)
 
